@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  cache:
+    container_name: local_surveys_cache
+    image: redis:7
+  db:
+    image: postgres:15.2-alpine
+    container_name: local_surveys_db
+    environment:
+      POSTGRES_DB: surveys
+      POSTGRES_USER: inquizitor
+      POSTGRES_PASSWORD: quizpassword
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+      - ./.data/database:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@inquizitive.land
+      PGADMIN_DEFAULT_PASSWORD: pgpassword
+    volumes:
+      - ./.pgadmin:/var/lib/pgadmin4/storage
+    ports:
+      - "5050:80"

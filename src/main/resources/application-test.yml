@@ -1,0 +1,10 @@
+quarkus:
+  log:
+    console:
+      json: false
+  datasource:
+    username: "inquizitor"
+    password: "quizpassword"
+    jdbc:
+      url: "jdbc:postgresql://localhost:5432/surveys"
+
