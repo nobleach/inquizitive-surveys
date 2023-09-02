@@ -37,10 +37,10 @@ class SurveyEntity {
 
   @OneToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "starting_question_id", nullable = false)
-  lateinit var startingQuestion: QuestionEntity
+  lateinit var startingQuestion: SurveyQuestionEntity
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "assessment")
-  lateinit var questionPlanList: MutableList<QuestionPlanEntity>
+  lateinit var questionPlanList: MutableList<SurveyQuestionPlanEntity>
 
   @Column(name = "created_at")
   val createdTimestamp: ZonedDateTime? = ZonedDateTime.now()

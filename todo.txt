@@ -1,0 +1,6 @@
+Dear Future Jim:
+
+* I have begun refactoring all instances of the term "assessment", changing it to "survey"
+* Since the term "Response" is ambiguous, I have been changing it to "SurveyResponse"
+* Most other terms to follow (Question -> SurveyQuestion, etc)
+

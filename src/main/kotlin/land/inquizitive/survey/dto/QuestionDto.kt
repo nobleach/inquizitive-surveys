@@ -8,5 +8,5 @@ data class QuestionDto(
   val responseType: ResponseTypesDto,
   var questionAidType: QuestionAidTypeDto?,
   val questionAidUrl: String?,
-  val responses: List<ResponseDto>
+  val responses: List<SurveyResponseDto>
 )

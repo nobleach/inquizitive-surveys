@@ -7,7 +7,7 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository
 import land.inquizitive.survey.entity.SurveyResponseTypeEntity
 
 @ApplicationScoped
-class ResponseTypesRepository : PanacheRepository<SurveyResponseTypeEntity> {
+class SurveyResponseTypesRepository : PanacheRepository<SurveyResponseTypeEntity> {
   fun findById(responseTypeId: UUID): SurveyResponseTypeEntity {
     return find("id", responseTypeId).firstResult()
   }
