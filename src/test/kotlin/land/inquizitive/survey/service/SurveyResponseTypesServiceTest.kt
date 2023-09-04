@@ -1,4 +1,4 @@
-package com.ww.assessmentservice.service
+package land.inquizitive.survey.service
 
 import java.time.ZonedDateTime
 import org.junit.jupiter.api.Test
@@ -7,18 +7,18 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import org.assertj.core.api.Assertions.assertThat
-import com.ww.assessmentservice.entity.ResponseTypeEntity
-import com.ww.assessmentservice.repository.ResponseTypesRepository
+import land.inquizitive.survey.entity.SurveyResponseTypeEntity
+import land.inquizitive.survey.repository.SurveyResponseTypesRepository
 
-class ResponseTypesServiceTest {
+class SurveyResponseTypesServiceTest {
   companion object {
-    private val responseTypes = mutableListOf<ResponseTypeEntity>(
-      ResponseTypeEntity(),
-      ResponseTypeEntity()
+    private val responseTypes = mutableListOf<SurveyResponseTypeEntity>(
+      SurveyResponseTypeEntity(),
+      SurveyResponseTypeEntity()
     )
 
     @MockK
-    private lateinit var responseTypesRepository: ResponseTypesRepository
+    private lateinit var responseTypesRepository: SurveyResponseTypesRepository
 
     @BeforeAll
     @JvmStatic
@@ -31,7 +31,7 @@ class ResponseTypesServiceTest {
 
   @Test
   fun testShouldReturnResponseTypes() {
-    val service = ResponseTypesService(
+    val service = SurveyResponseTypesService(
       responseTypesRepository,
     )
     val result = service.getAllResponseTypes()

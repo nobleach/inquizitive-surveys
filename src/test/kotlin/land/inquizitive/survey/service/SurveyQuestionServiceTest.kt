@@ -1,4 +1,4 @@
-package com.ww.assessmentservice.service
+package land.inquizitive.survey.service
 
 import java.time.ZonedDateTime
 import org.junit.jupiter.api.Test
@@ -8,21 +8,21 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import org.assertj.core.api.Assertions.assertThat
 import java.util.UUID
-import com.ww.assessmentservice.entity.ResponseTypeEntity
-import com.ww.assessmentservice.entity.QuestionEntity
-import com.ww.assessmentservice.entity.ResponseEntity
-import com.ww.assessmentservice.repository.QuestionRepository
+import land.inquizitive.survey.entity.SurveyResponseTypeEntity
+import land.inquizitive.survey.entity.SurveyQuestionEntity
+import land.inquizitive.survey.entity.SurveyResponseEntity
+import land.inquizitive.survey.repository.SurveyQuestionRepository
 
-class QuestionServiceTest {
+class SurveyQuestionServiceTest {
   companion object {
-    private var responseType = ResponseTypeEntity()
+    private var responseType = SurveyResponseTypeEntity()
 
-    private var question1 = QuestionEntity()
+    private var question1 = SurveyQuestionEntity()
 
-    private var response1 = ResponseEntity()
+    private var response1 = SurveyResponseEntity()
 
     @MockK
-    private lateinit var questionRepository: QuestionRepository
+    private lateinit var questionRepository: SurveyQuestionRepository
 
     @BeforeAll
     @JvmStatic
@@ -40,12 +40,12 @@ class QuestionServiceTest {
     responseType.name = "SINGLE_OPTION"
     question1.id = UUID.fromString("67e7ff1c-c125-4d3c-9309-d913432d1393")
     question1.questionText = "How does your garden grow?"
-    question1.responseType = responseType
-    question1.questionAidType = null
+    question1.surveyResponseType = responseType
+    question1.surveyQuestionAidType = null
     question1.questionAidUrl = ""
-    question1.responses = mutableListOf(response1)
-    response1.question = question1
-    val service = QuestionService(
+    question1.surveyResponses = mutableListOf(response1)
+    response1.surveyQuestion = question1
+    val service = SurveyQuestionService(
       questionRepository,
     )
 
